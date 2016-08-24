@@ -1,0 +1,11 @@
+.Cell {
+  width: 50px;
+  height: 50px;
+  background-color: #ddd;
+  margin: 5px;
+  display: inline-block;
+}
+
+.Cell-alive {
+  background-color: #000;
+}

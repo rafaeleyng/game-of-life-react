@@ -1,18 +1,56 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import Cell from './Cell'
+import _ from 'lodash'
 
 class App extends Component {
+  constructor() {
+    super()
+
+    const width = 4
+    const height = 4
+    const board = []
+    for (var i = 0; i < width * height; ++i) { board[i] = false }
+
+    this.state = {
+      width,
+      height,
+      board,
+    }
+
+    // bind
+    this.handleCellClick = this.handleCellClick.bind(this)
+  }
+
+  handleCellClick(index) {
+    const board = this.state.board
+    board[index] = !board[index]
+    this.setState({board})
+  }
+
   render() {
+    const listCell = (
+      <div>
+        {
+          _.times(this.state.width, i => {
+            return (
+              <div key={i} className="row">
+                {
+                  _.times(this.state.height, j => {
+                    const index = i * this.state.width + j
+                    return (<Cell click={this.handleCellClick} key={index} index={index} alive={this.state.board[index]} />)
+                  })
+                }
+              </div>
+            )
+          })
+        }
+      </div>
+    )
+
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {listCell}
       </div>
     );
   }
