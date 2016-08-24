@@ -7,8 +7,8 @@ class App extends Component {
   constructor() {
     super()
 
-    const width = 4
-    const height = 4
+    const width = 16
+    const height = 16
     const board = []
     for (var i = 0; i < width * height; ++i) { board[i] = false }
 
@@ -34,7 +34,7 @@ class App extends Component {
         {
           _.times(this.state.width, i => {
             return (
-              <div key={i} className="row">
+              <div key={i} className="App-row">
                 {
                   _.times(this.state.height, j => {
                     const index = i * this.state.width + j
