@@ -1,3 +1,5 @@
-# Conway's Game of Life
+# [game-of-life-react](https://rafaeleyng.github.io/game-of-life-react/)
 
-This is a WIP
+Conway's Game of Life.
+
+See the [live demo](https://rafaeleyng.github.io/game-of-life-react/)
